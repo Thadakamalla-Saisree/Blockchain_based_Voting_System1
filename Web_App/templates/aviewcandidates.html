@@ -1,0 +1,42 @@
+		
+{% extends 'adminbase.html' %}
+{% load static %}
+
+{% block content %}
+
+<br><h3>
+<strong>View Candidates </strong></h3><br><br>
+
+			<table id="tab" width="100%">
+					<tr>
+					<th>Candidate
+					<th>Party
+					
+			
+				{% for d in data %}
+	
+				<tr>
+						<td>
+						<h5>						{{d.cname}}</h5>
+						<img  src="{{baseUrl}}/{{d.photo}}" alt="" width="200" height="150">	<br>
+						<b>Born: {{d.born}}<br>
+						Education: {{d.education}}<br>
+						About: {{d.description}}
+
+</b>
+				<td>
+						<h5>{{d.party}}</h5>
+						<img  src="{{baseUrl}}/{{d.symbol}}" class="" alt="" width="200" height="200">
+						
+					
+
+						
+			{% endfor %}
+			</table>
+
+
+
+
+<br><br>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'userbase.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+</font>
+<center>
+<h2>Appy Leave</h2>
+<br>
+<br><form method="post" action="/leaveapply/">
+	{% csrf_token %} 
+<table width="60%">
+                    <input  size=40 type="hidden" name="sid" value="{{data.studentid}}">
+                    <input  size=40 type="hidden" name="name" value="{{data.name}}">
+                    <input  size=40 type="hidden" name="branch" value="{{data.branch}}">
+                  <tr><td>Reason
+				  <textarea name="content" rows="" cols="" required></textarea>
+				  
+				  <tr><td>Outing date
+				  <input size=40  type="date" name="date1" required="required" >
+					<tr><td>Return  date
+				  <input size=40  type="date" name="date2" required="required" >
+
+
+					<tr><td><br><input type="submit"  value="Request">
+                
+</table>
+</form>
+
+{% endblock %}

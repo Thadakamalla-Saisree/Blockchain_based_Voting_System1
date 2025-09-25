@@ -1,0 +1,25 @@
+
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<center>
+<h4>
+<table width="90%" id="tab" >
+<tr><th>Sno<th>Candidate<th>Party<th> Votes
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.name}}<TD>{{d1.party}}<TD>{{d1.votes}} votes
+
+
+
+
+
+{% endfor %}
+</table>
+
+
+
+
+
+
+{% endblock %}

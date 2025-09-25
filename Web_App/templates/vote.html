@@ -1,0 +1,62 @@
+		
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block content %}
+
+<br><h3>
+<strong>Vote </strong></h3><br><br>
+
+			<table id="tab" width="100%">
+					<tr>
+					<th>Candidate
+					<th>Party
+					<th>
+			
+				{% for d in data %}
+	
+				<tr>
+						<td>
+						<h5>						{{d.cname}}</h5>
+						<img  src="{{baseUrl}}/{{d.photo}}"  alt="" width="200" height="250">	<br>
+						<b>Born: {{d.born}}<br>
+						Education: {{d.education}}<br>
+						About: {{d.description}}
+
+</b>
+				<td>
+						<h5>{{d.party}}</h5>
+						<img  src="{{baseUrl}}/{{d.symbol}}"  alt="" width="100" height="150">
+						
+						<td>
+
+<form method="post" action="/vote/">
+					{% csrf_token %}
+	
+<input type="hidden" name="vote" value="{{d.id}}">
+
+<input type="hidden" name="eid" value="{{d.eid}}">
+
+<input type="submit" value="Vote">
+
+</form>
+
+
+
+
+
+
+
+
+				
+
+						
+			{% endfor %}
+			</table>
+
+
+
+
+<br><br>
+
+{% endblock %}

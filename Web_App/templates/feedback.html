@@ -1,0 +1,95 @@
+{% extends 'base_u.html' %}
+
+{% load static %}
+
+{% block content %}
+<h1>
+<center>
+Feedback
+</h1>
+
+<style>
+.slidecontainer {
+  width: 40%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 40%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<center>
+<table id="tab" width="50%">
+<tr><th>Sno<th>Review<th>Rating<th>User
+				{% for d in data %}
+<tr><td width="10%">{{forloop.counter}}<td>{{d.comment}}<td>{{d.rating}}<td>{{d.user}}
+
+				{% endfor %}
+</table>
+<br><br>
+Submit your review
+<br>
+
+<table id="tab" width="70%">
+
+				<form action="/postcomments/" method="post">
+					{% csrf_token %}
+	
+					<input type="hidden" name="uid" value="{{uid}}">
+					<input type="hidden" name="url" value="{{url}}">
+
+					<tr><td>
+
+					<input type="text" name="review" placeholder="Enter Review" class="form-control" required>
+					<tr><td><h3>Rating:	<span id="demo"></span></p>
+
+					<input type="range" name="rating" id="myRange" class="slider"  min="1" max="5" required>
+
+<tr><td>
+					<input type="submit" value="Feedback">												</form>
+</table>
+
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>
+
+					
+
+{% endblock %}
+

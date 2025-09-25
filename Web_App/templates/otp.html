@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+{% block content %} 
+		
+<table id="tab"width="50%">
+<tr><td valign="top">
+
+<h2>OTP Verification</h2><br>
+
+<form method="post" action="/otpverify/">
+	{% csrf_token %} 
+              
+                    <tr><td>
+					<input type="hidden" name="otp_o" value="{{otp}}" >
+					<input type="hidden" name="uid" value="{{uid}}" >
+					<input   size="60"  class="form-control"  type="text" name="otp" placeholder="Enter OTP"></input></td></tr>
+                    <tr><td><input type="submit" class="form-control" value="Verify">
+                
+
+
+</form>
+
+	</table>	
+{% endblock %}

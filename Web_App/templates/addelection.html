@@ -1,0 +1,18 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<font size="+1" color="red">{{msg}}
+</font>
+<center>
+<h2>Add Election</h2>
+<br>
+<br><form method="post" action="/addelection/">
+	{% csrf_token %} 
+<table width="60%">
+                    <tr><td><input  size=40 type="text" name="name" placeholder="Enter Election Name" required="required" ></input><br></td></tr>
+                    <tr><td><input  size=40 type="text" name="addr" placeholder="Location" required="required" ></input><br></td></tr>
+					<tr><td><br><input type="submit"  value="Add">
+                
+</table>
+</form>
+
+{% endblock %}

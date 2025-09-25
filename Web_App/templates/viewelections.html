@@ -1,0 +1,41 @@
+
+{% extends 'adminbase.html' %}
+{% block content %}
+<center>
+	<font size="" color="#ff0000"><strong>{{msg}}</strong></font>
+	<br><br>
+<h2>View Elections</h2>
+<br><br>
+
+<table width="90%" id="tab" >
+<tr><th>Sno<th>Election name<th>Location<th>Status<th>
+{% for d1 in data %}
+
+<TR><TD>{{forloop.counter}}<TD>{{d1.name}}<TD>{{d1.location}}<TD>{{d1.stz}}<td>
+
+
+
+<form method="get" action="/aviewcandidates/">
+
+	<input type="hidden" name="eid" value="{{d1.id}}">
+	<input type="submit" value="View Candidates">
+
+</form>
+
+<form method="get" action="/viewresults/">
+
+	<input type="hidden" name="eid" value="{{d1.id}}">
+	<input type="submit" value="View Votings">
+
+</form>
+
+
+
+
+{% endfor %}
+
+</table>
+
+
+
+{% endblock %}

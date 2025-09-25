@@ -1,0 +1,30 @@
+		
+{% extends 'userbase.html' %}
+{% load static %}
+
+{% block content %}
+
+	<strong>{{msg}}</strong>
+	
+<h3>Vew Announcements</h3><br>
+
+<center>
+			<table id="tab" width="100%">
+					<tr><th>Sno
+					<th width="60%">Announcement
+					<th>Date
+				
+				{% for d in data %}
+	
+				<tr><td>{{forloop.counter}}		
+			
+						<td>{{d.announcement}}
+							<td>{{d.dat_e}}
+
+						
+						
+			{% endfor %}
+			</table>
+				
+			
+{% endblock %}

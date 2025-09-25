@@ -1,0 +1,46 @@
+
+
+{% extends 'adminbase.html' %}
+
+{% block content %}
+
+	
+<h5>{{msg}}</h5>
+	
+	 <h3>Add Candidates</h3>
+<center><br>
+
+	
+<form method="post" action="/addcandidate/">
+	{% csrf_token %}
+<table width="90%" id="tab">
+<tr><td><b>Select Election
+<select name="eid" class="form-control" >
+{% for d in data%}
+	<option value="{{d.id}}">{{d.name}}
+{% endfor %}
+
+</select>
+
+
+	<tr><td><b>Candidate Name
+	<input type="text" name="name" required width="100%"> </td>
+	<tr><td><b>Party
+	<input type="text" name="party" required width="100%"> </td>
+	<tr><td><b>Born
+	<input type="text" name="born" required width="100%"> </td>
+	<tr><td><b>Education
+	<input type="text" name="edu" required width="100%"> </td>
+	<tr><td><b>Description
+	<input type="text" name="des" required width="100%"> </td>
+	<tr><td><b>Candidate Photo
+	<input type="file" name="photo" required width="100%"> </td>
+	<tr><td><b>Party Symbol
+	<input type="file" name="sym" required width="100%"> </td>
+	<tr><td><input type="submit" value="Add"> 
+</tr>
+</table>
+</form>
+</center>
+
+{% endblock %}

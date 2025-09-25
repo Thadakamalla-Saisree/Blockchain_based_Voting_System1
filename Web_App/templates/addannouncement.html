@@ -1,0 +1,31 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+{{msg}}
+<h1>Add & View Announcements</h1>
+<br><br>
+<center>
+<br>
+<h3><strong>Add Here</strong></h3>
+<form method="post" action="/addannouncement/">
+	{% csrf_token %} 
+<table  width="85%" id="tab" cellspacing="10">
+                    <tr><td><textarea name="cont" rows="" cols=""></textarea>
+                 	<tr><td><input type="submit" value="Add">
+                
+</table>
+</form>
+
+
+<table id="tab" width="85%">
+
+<tr><th>Sno<th>Announcement<th>Date
+
+{% for d in data %}
+<tr><td>{{ forloop.counter }}<td>{{d.announcement}}<td>{{d.dat_e}}
+{% endfor %}
+</table>
+
+
+
+
+{% endblock %}
